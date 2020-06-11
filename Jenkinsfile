@@ -14,10 +14,10 @@ node {
     stage('Building image bulletin board app') {
 	    echo 'Building Docker image bulletin board app...'
       withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-	     	sh "sudo docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-	     	sh "sudo docker build -t ${registry} bulletin-board-app/."
-	     	sh "sudo docker tag ${registry} ${env.dockerHubUser}/${registry}"
-	     	sh "sudo docker push ${env.dockerHubUser}/${registry}"
+	     	sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+	     	sh "docker build -t ${registry} bulletin-board-app/."
+	     	sh "docker tag ${registry} ${env.dockerHubUser}/${registry}"
+	     	sh "docker push ${env.dockerHubUser}/${registry}"
       }
     }
     
