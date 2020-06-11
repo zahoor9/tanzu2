@@ -10,10 +10,7 @@ node {
       echo "Branch: ${env.BRANCH_NAME}"
       sh 'docker -v'
     }
-    stage("Linting") {
-      echo 'Linting...'
-      sh '/usr/local/bin/hlint Dockerfile'
-    }
+    
     stage('Building image bulletin board app') {
 	    echo 'Building Docker image bulletin board app...'
       withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
