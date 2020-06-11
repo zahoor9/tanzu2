@@ -12,7 +12,7 @@ node {
     }
     stage("Linting") {
       echo 'Linting...'
-      sh '/usr/local/bin/hlint bulletin-board-app/Dockerfile'
+      sh '/usr/local/bin/hlint Dockerfile'
     }
     stage('Building image bulletin board app') {
 	    echo 'Building Docker image bulletin board app...'
