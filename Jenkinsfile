@@ -12,12 +12,7 @@ node {
       echo "Branch: ${env.BRANCH_NAME}"
       sh 'docker -v'
     }
-    stage("Linting") 
-    {
-      echo 'Linting... Dockerfile check'
-      sh '/usr/local/bin/hlint ./Dockerfile'
-    }
-    
+   
     stage('Building Docker image') 
     {
 	    echo 'Building Docker image for bulletin board app'
