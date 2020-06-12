@@ -26,6 +26,7 @@ node {
     
     stage('Deploying to TKG in AWS') {
       echo 'Deploying to Tanzu Kubernetes Grid in AWS'
+      sh "kubectl vsphere login --server=192.168.50.1 --tanzu-kubernetes-cluster-name gc1 --tanzu-kubernetes-cluster-namespace namespace1 --vsphere-username administrator@vsphere.local --insecure-skip-tls-verify"
       sh "kubectl version"
       sh "kubectl apply -f ./bulletinboard.yaml"
       sh "kubectl get nodes"
