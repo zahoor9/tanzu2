@@ -26,6 +26,7 @@ node {
     
     stage('Deploying to TKG in AWS') {
       echo 'Deploying to Tanzu Kubernetes Grid in AWS'
+      sh "kubectl version"
       sh "kubectl apply -f ./bulletinboard.yaml"
       sh "kubectl get nodes"
       sh "kubectl get pods"
